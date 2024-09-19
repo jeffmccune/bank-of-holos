@@ -62,3 +62,11 @@ metadata:
     kubernetes.io/metadata.name: istio-system
 kind: Namespace
 apiVersion: v1
+---
+# Source: CUE apiObjects.Namespace.migration
+metadata:
+  name: migration
+  labels:
+    kubernetes.io/metadata.name: migration
+kind: Namespace
+apiVersion: v1
