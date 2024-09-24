@@ -71,7 +71,7 @@ spec:
       containers:
         - env:
             - name: BANK_NAME
-              value: Bank of Holos
+              value: The Holistic Bank
             - name: ENV_PLATFORM
               value: local
             - name: VERSION
