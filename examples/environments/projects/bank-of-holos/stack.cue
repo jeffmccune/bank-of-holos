@@ -90,15 +90,14 @@ _Stack: {
 		}
 
 		// Source: https://github.com/GoogleCloudPlatform/bank-of-anthos/blob/v0.6.5/kubernetes-manifests/config.yaml#L34-L42
-		// WARNING: Not secure. Replace with secure secret management.
-		ConfigMap: "demo-data-config": k8s.#ConfigMap & {
-			apiVersion: "v1"
-			kind:       "ConfigMap"
+		ExternalSecret: "demo-data-config": es.#ExternalSecret & {
 			metadata: name: "demo-data-config"
-			data: {
-				USE_DEMO_DATA:       "True"
-				DEMO_LOGIN_USERNAME: "testuser"
-				DEMO_LOGIN_PASSWORD: "bankofanthos"
+			spec: {
+				target: name: metadata.name
+				dataFrom: [{extract: {key: metadata.name}}]
+				refreshInterval: "5s"
+				secretStoreRef: kind: "SecretStore"
+				secretStoreRef: name: _Stack.Resources.SecretStore[_Stack.BankName].metadata.name
 			}
 		}
 
