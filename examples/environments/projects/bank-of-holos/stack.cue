@@ -89,6 +89,19 @@ _Stack: {
 			}
 		}
 
+		// Source: https://github.com/GoogleCloudPlatform/bank-of-anthos/blob/v0.6.5/kubernetes-manifests/config.yaml#L34-L42
+		// WARNING: Not secure. Replace with secure secret management.
+		ConfigMap: "demo-data-config": k8s.#ConfigMap & {
+			apiVersion: "v1"
+			kind:       "ConfigMap"
+			metadata: name: "demo-data-config"
+			data: {
+				USE_DEMO_DATA:       "True"
+				DEMO_LOGIN_USERNAME: "testuser"
+				DEMO_LOGIN_PASSWORD: "bankofanthos"
+			}
+		}
+
 		// https://github.com/GoogleCloudPlatform/bank-of-anthos/blob/release/v0.6.5/kubernetes-manifests/config.yaml
 		ConfigMap: "environment-config": k8s.#ConfigMap & {
 			apiVersion: "v1"
@@ -110,17 +123,6 @@ _Stack: {
 				HISTORY_API_ADDR:      "transactionhistory.\(Backend.Namespace).svc:8080"
 				CONTACTS_API_ADDR:     "contacts.\(Backend.Namespace).svc:8080"
 				USERSERVICE_API_ADDR:  "userservice.\(Backend.Namespace).svc:8080"
-			}
-		}
-
-		ExternalSecret: "demo-data-config": es.#ExternalSecret & {
-			metadata: name: "demo-data-config"
-			spec: {
-				target: name: metadata.name
-				dataFrom: [{extract: {key: metadata.name}}]
-				refreshInterval: "5s"
-				secretStoreRef: kind: "SecretStore"
-				secretStoreRef: name: SecretStore[BankName].metadata.name
 			}
 		}
 	}
