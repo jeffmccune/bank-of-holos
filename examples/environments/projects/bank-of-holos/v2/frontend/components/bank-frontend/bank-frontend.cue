@@ -84,15 +84,15 @@ _Kubernetes: #Kubernetes & {
 								value: "info"
 							}, {
 								name: "DEFAULT_USERNAME"
-								// DEMO:SECRETS ☞ Change this to a secretKeyRef.
-								valueFrom: configMapKeyRef: {
+								// DEMO-SECRETS ☞ Change this to a secretKeyRef.
+								valueFrom: secretKeyRef: {
 									key:  "DEMO_LOGIN_USERNAME"
 									name: "demo-data-config"
 								}
 							}, {
 								name: "DEFAULT_PASSWORD"
-								// DEMO:SECRETS ☞ Change this to a secretKeyRef.
-								valueFrom: configMapKeyRef: {
+								// DEMO-SECRETS ☞ Change this to a secretKeyRef.
+								valueFrom: secretKeyRef: {
 									key:  "DEMO_LOGIN_PASSWORD"
 									name: "demo-data-config"
 								}

@@ -11,7 +11,7 @@ _SharedEnvironments: #Environment & {
 // DEMO:SECRETS ☞ Bump the stack version.
 _SandboxEnvironments: #Sandbox & {
 	jeff: Version: "v1"
-	gary: Version: "v1"
+	gary: Version: "v2"
 }
 
 // Stacks represents the collection of stacks across all environments.
