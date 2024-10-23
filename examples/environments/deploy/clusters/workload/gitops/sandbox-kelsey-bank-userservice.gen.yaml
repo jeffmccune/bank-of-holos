@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    application: bank-of-holos
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-userservice
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: backend
+    team: kelsey
+    tier: backend
+  name: sandbox-kelsey-bank-userservice
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: sandbox-kelsey-bank-backend
+  source:
+    path: examples/environments/deploy/clusters/workload/components/sandbox-kelsey-bank-userservice
+    repoURL: https://github.com/jeffmccune/bank-of-holos
+    targetRevision: demo

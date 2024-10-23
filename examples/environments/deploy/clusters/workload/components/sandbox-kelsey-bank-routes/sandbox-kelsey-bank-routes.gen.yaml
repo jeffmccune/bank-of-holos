@@ -1,0 +1,32 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  labels:
+    app: sandbox-kelsey-bank
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-routes
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-routes
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank
+  namespace: istio-ingress
+spec:
+  hostnames:
+  - sandbox-kelsey-bank.holos.localhost
+  parentRefs:
+  - name: default
+    namespace: istio-ingress
+  rules:
+  - backendRefs:
+    - name: frontend
+      namespace: sandbox-kelsey-bank-frontend
+      port: 80
+    matches:
+    - path:
+        type: PathPrefix
+        value: /

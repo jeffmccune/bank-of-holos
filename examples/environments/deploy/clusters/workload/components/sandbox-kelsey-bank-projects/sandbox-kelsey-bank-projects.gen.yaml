@@ -1,0 +1,80 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  labels:
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-projects
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-projects
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank-backend
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: Holos managed AppProject for Bank of Holos
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  labels:
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-projects
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-projects
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank-frontend
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: Holos managed AppProject for Bank of Holos
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  labels:
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-projects
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-projects
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank-security
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: Holos managed AppProject for Bank of Holos
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
