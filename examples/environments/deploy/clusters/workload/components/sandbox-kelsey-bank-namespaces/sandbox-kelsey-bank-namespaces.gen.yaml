@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-namespaces
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-namespaces
+    kubernetes.io/metadata.name: sandbox-kelsey-bank-backend
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank-backend
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-namespaces
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-namespaces
+    kubernetes.io/metadata.name: sandbox-kelsey-bank-frontend
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank-frontend
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    application: bank-of-holos
+    argocd.argoproj.io/instance: sandbox-kelsey-bank-namespaces
+    environment: sandbox
+    environment.example.com/name: sandbox
+    holos.run/component.name: sandbox-kelsey-bank-namespaces
+    kubernetes.io/metadata.name: sandbox-kelsey-bank-security
+    owner.example.com/name: kelsey
+    stack.example.com/name: bank-of-holos
+    stack.example.com/tier: foundation
+    team: kelsey
+    tier: foundation
+  name: sandbox-kelsey-bank-security

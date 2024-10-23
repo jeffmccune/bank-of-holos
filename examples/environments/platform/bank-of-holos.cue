@@ -10,7 +10,8 @@ _SharedEnvironments: #Environment & {
 // DEMO:ENVS ☞ Add a new contributor here.
 // DEMO:SECRETS ☞ Bump the stack version.
 _SandboxEnvironments: #Sandbox & {
-	jeff: Version: "v1"
+	jeff: Version:   "v1"
+	kelsey: Version: "v1"
 }
 
 // Stacks represents the collection of stacks across all environments.
