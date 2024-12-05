@@ -171,7 +171,7 @@ spec:
             name: environment-config
         - configMapRef:
             name: service-api-config
-        image: us-central1-docker.pkg.dev/bank-of-anthos-ci/bank-of-anthos/frontend:v0.6.5@sha256:d72050f70d12383e4434ad04d189b681dc625f696087ddf0b5df641645c9dafa
+        image: us-central1-docker.pkg.dev/bank-of-anthos-ci/bank-of-anthos/frontend:v0.6.6
         livenessProbe:
           httpGet:
             path: /ready
